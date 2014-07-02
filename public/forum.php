@@ -27,22 +27,56 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h2>Hello!</h2>
-		<p>Just some simple information for everyone who plays and chats with us!</p><br>
+	
+		<table>
 
-		<h3>TeamSpeak Server</h3>
-		<p>Click <a href="ts3server://ts.kthxlol.com">here</a> to connect to TS or you can manually add "ts.kthxlol.com" to your bookmarks. There is no password or port required.</p><br>
+			<tr>
+				<th width="32"></th>
+				<th width="528">Forum</th>
+				<th width="200">Last post</th>
+				<th width="100">Threads</th>
+				<th width="100">Posts</th>
+			</tr>
 
-		<h3>Minecraft Crackpack Server</h3>
-		<p>We run a Minecraft server that's currently running Crackpack from the ATLauncher. The address is "kthxlol.com".</p><br>
+			<tr>
+				<td class="mainrow" colspan="5">Main Threads</td>
+			</tr>
+			<tr>
+				<td>img</td>
+				<td>Forum Rules</td>
+				<td>Timestamp</td>
+				<td>2</td>
+				<td>120</td>
+			</tr>
 
-		<h3>Minecraft Control Panel</h3>
-		<p>Click <a href="http://www.kthxlol.com:8082">here</a> you lazy son of a bitch.</p><br>
+			<tr>
+				<td class="mainrow" colspan="5">User Created Threads</td>
+			</tr>
+			<tr>
+				<td>img</td>
+				<td>Topic1</td>
+				<td>Timestamp</td>
+				<td>2</td>
+				<td>120</td>
+			</tr>
+			<tr>
+				<td>img</td>
+				<td>Topic2</td>
+				<td>Timestamp</td>
+				<td>2</td>
+				<td>120</td>
+			</tr>
+			<tr>
+				<td>img</td>
+				<td>Topic3</td>
+				<td>Timestamp</td>
+				<td>2</td>
+				<td>120</td>
+			</tr>
 
-		<h3>Web Hosting Control Panel</h3>
-		<p>You probably don't need to click <a href="https://www.kthxlol.com:8083">here</a>, but maybe you do.</p>
+		</table>
+
 	</div>
-
 	<img class="image-botton-right" src="assets/img/logo.png" alt="logo" />
 </body>
 </html>
