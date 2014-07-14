@@ -33,6 +33,38 @@ html {font-family: sans-serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjus
     overflow: hidden;
 }
 
+/*-------Header--------*/
+
+header{ 
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 1em;
+    background: #21bbef;
+}
+
+header a{
+    text-decoration: none;
+    color: #f6f7da;
+}
+
+header h1{
+    color: #f6f7da;
+    margin: 0;
+    padding: 1.5em 0.5em;
+}
+
+header img{
+    width: 180px;
+}
+
+.image-bottom-right{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+
 /*-------Navigation--------*/
 
 nav{
@@ -51,7 +83,6 @@ nav{
     position: relative;
     overflow: hidden;
     padding: 0 1em;
-    border-bottom: 1px solid #f6f7da;
 }
 
 nav ul,
@@ -88,11 +119,6 @@ nav ul li a{
 .navbutton{
     padding: 0.2em 1em;
     color: #f6f7da;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -ms-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
 }
 
 .navbutton:hover{
@@ -108,16 +134,26 @@ nav ul li a{
 
 /*-----Main Content-------*/
 
-body {
-	background: #f6f7da;
+/*
+https://kuler.adobe.com/Omnivoros-color-theme-3973929/
+*/
+
+body {/*
+    background: #f6f7da;*/
+	background: #878786;
 	font-family: helvetica;
     color: #373736;
 } 
 
+h2, h3{
+    color: #21bbef;
+}
+
 .container{
     max-width: 960px;
-    margin: 0 auto;
-    background: #82d0f5;
+    margin: 0 auto;/*
+    background: #82d0f5;*/
+    background: #fff;
     position: relative;
     overflow: hidden;
     padding: 1em;
@@ -154,22 +190,66 @@ td{/*
 }
 
 .mainrow{
-    background: rgb(37,187,237); /* Old browsers */
-    background: -moz-linear-gradient(top,  rgba(37,187,237,1) 0%, rgba(26,184,237,1) 50%, rgba(33,187,239,1) 51%, rgba(161,218,237,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(37,187,237,1)), color-stop(50%,rgba(26,184,237,1)), color-stop(51%,rgba(33,187,239,1)), color-stop(100%,rgba(161,218,237,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(37,187,237,1) 0%,rgba(26,184,237,1) 50%,rgba(33,187,239,1) 51%,rgba(161,218,237,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(37,187,237,1) 0%,rgba(26,184,237,1) 50%,rgba(33,187,239,1) 51%,rgba(161,218,237,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(37,187,237,1) 0%,rgba(26,184,237,1) 50%,rgba(33,187,239,1) 51%,rgba(161,218,237,1) 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  rgba(37,187,237,1) 0%,rgba(26,184,237,1) 50%,rgba(33,187,239,1) 51%,rgba(161,218,237,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25bbed', endColorstr='#a1daed',GradientType=0 ); /* IE6-9 */
-
+    background: #f6f7da;
     border-bottom: 0px;
 }
 
 /*-----Footer-----*/
 
 .image-botton-right{
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     right: 0px;
+}
+
+/*-----Login Form-----*/
+
+label{
+    display: block;
+}
+
+input[type=text],
+input[type=password]{
+    margin: 0.5em 0;
+}
+
+button{
+    background: #FFF691;
+    color: #05bc87;
+    position: relative;
+}
+
+.container input[type=submit]:hover{
+    background: #878786;
+}
+
+.container input[type=submit]:active{
+    top: 1px;
+    background: #373736;
+}
+
+button:hover{
+    background: #878786;
+}
+
+button:active{
+    top: 1px;
+    background: #373736;
+}
+
+.container input[type=submit], .register, .update, .create{
+    width: 175px;
+    position: relative;
+}
+
+.container input[type=submit],
+button{
+    margin: 0.25em 0;
+    font-weight: 300;
+    background: #21bbef;
+    color: #fff;
+    border: 1px solid #373736;
+    border-radius: 2px;
+    outline: none;
+    clear: both;
 }
