@@ -8,6 +8,7 @@ require_once '../libraries/login.lib.php';
 require_once '../libraries/model.lib.php';
 require_once '../libraries/admin.lib.php';
 require_once '../libraries/user.lib.php';
+require_once '../models/page.collection.php';
 
 if($_POST){
 
@@ -24,6 +25,8 @@ if($_POST){
 		if($user->admin == 1){
 			# sets the admin to logged in in the Session for access to extra features across the site.
 			Login::admin_log_in();
+			header('location: index.php');
+			exit;
 		}else{
 			# then log them in as a user instead
 			Login::user_log_in();

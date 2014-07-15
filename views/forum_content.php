@@ -4,47 +4,25 @@
 
 			<tr>
 				<th width="32"></th>
-				<th width="528">Forum</th>
-				<th width="200">Last post</th>
-				<th width="100">Threads</th>
-				<th width="100">Posts</th>
+				<th width="468">Forum</th>
+				<th width="200">Date Posted</th>
+				<th width="180">Created By</th>
+				<th width="80">Posts</th>
 			</tr>
 
+			<? foreach($threads->items as $thread): ?>
+			<?php 
+				$user = new Users($thread['user_id']); 
+				$
+			?>
 			<tr>
-				<td class="mainrow" colspan="5">Main Threads</td>
+				<td><img style="width: 64px;" src="<?=$user->image?>"></td>
+				<td><?=$thread['name']?></td>
+				<td><?=$thread['date_posted']?></td>
+				<td><?=$user->username?> </td>
+				<td>x</td>
 			</tr>
-			<tr>
-				<td>img</td>
-				<td>Forum Rules</td>
-				<td>Timestamp</td>
-				<td>2</td>
-				<td>120</td>
-			</tr>
-
-			<tr>
-				<td class="mainrow" colspan="5">User Created Threads</td>
-			</tr>
-			<tr>
-				<td>img</td>
-				<td>Topic1</td>
-				<td>Timestamp</td>
-				<td>2</td>
-				<td>120</td>
-			</tr>
-			<tr>
-				<td>img</td>
-				<td>Topic2</td>
-				<td>Timestamp</td>
-				<td>2</td>
-				<td>120</td>
-			</tr>
-			<tr>
-				<td>img</td>
-				<td>Topic3</td>
-				<td>Timestamp</td>
-				<td>2</td>
-				<td>120</td>
-			</tr>
+			<? endforeach; ?>
 
 		</table>
 

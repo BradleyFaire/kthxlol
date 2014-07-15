@@ -1,56 +1,39 @@
-<?php
+<?php 
 
-require_once '../libraries/model.lib.php';
+require_once '../libraries/config.lib.php';
 
-# a new model called "Category_model"
-class Threads extends Model{
+class Threads{
 
-	public $table = 'tb_threads';
+	public $items = array(); //holds content in database
+	private $db;
 
-	# this will construct the model and let its functions be called
-	public function __construct(){
-		parent::__construct($this->table);
+	#establish a connection to the db
+	public function __construct($id = false){
+		$this->db = new Database(
+			Config::$hostname,
+			Config::$username,
+			Config::$password,
+			Config::$database
+			);
+
+		#select all products if they haven't been "deleted"
+		$this->db
+			->select('*')
+			->from('tb_threads')
+			->where('deleted', '0'); //if they are not deleted. Deleted =0
+		
+		# if it exists already, make sure the category_id is consistent
+		if($id){
+			$this->db->where_and('id', $id);
+		}
+
+		# get dem items
+		$this->items = $this->db->get();
 	}
 
-	# this will select a 
-	public function thread_name($thread){
-		$test = $this->db
-			->select('name')
-			->from($this->table)
-			->where('id', $thread)
-			->get_one();
-			return $test;
-	}
-
-	public function list_threads(){
-		$this->data = $this->db
-		->select('*')
-		->from($this->table)
-		->where('deleted', '0') //if they are not deleted. Deleted =0
-		->where_and('main_thread', '0')
-		->get();
-		return $this->data;
-	}
-
-	public function list_main_threads(){
-		$this->data = $this->db
-		->select('*')
-		->from($this->table)
-		->where('deleted', '0') //if they are not deleted. Deleted =0
-		->where_and('main_thread', '1')
-		->get();
-		return $this->data;
-	}
-
-	public function list_names(){
-
-		$result = $this->db
-			->select('name')
-			->from($this->table)
-			->where('deleted', '0')
-			->get();
-			$this->data = $result;
-
+	# count how many products are in this list
+	public function count_items(){
+		return count($this->items);
 	}
 
 }

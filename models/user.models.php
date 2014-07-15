@@ -3,20 +3,26 @@
 require_once '../libraries/config.lib.php';
 require_once '../libraries/hash.lib.php';
 
-class User{
+class Users{
 
 	#Property ===============================================!
 
-	public $customer_id = 0;
-	public $admin_id = 0;
+	public $user_id = 0;
 	public $username = '';
 	public $password = '';
+	public $email = '';
+	public $image = '';
+	public $description = '';
+	public $signature = '';
+	public $location = '';
+	public $date_joined = '';
+	public $admin = '';
 	private $db = null;
 
 	#MAGIC METHODS ===============================================!
 
 	# establish a connection to the db
-	function __construct($admin_id = 0, $customer_id = 0){
+	function __construct($user_id){
 		$this->db = new Database(
 			Config::$hostname,
 			Config::$username,
@@ -24,72 +30,27 @@ class User{
 			Config::$database
 			);
 
-		# if it is an admin
-		if($admin_id){
-
-			# select the admin's id, username, and pw where the id matches
-			$result = $this->db
-			->select('id, username, password')
-			->from('tb_admins')
-			->where('id', $admin_id)
-			->get_one();
-
-			# the user's id, username and pw are stored into $result array
-			$this->admin_id = $result['id'];
-			$this->username = $result['username'];
-			$this->password = $result['password'];
-
-		# otherwise if it is a customer
-		}else if($customer_id){
-
 			# select the customer's id, username, and pw where the id matches
 			$result = $this->db
-			->select('id, username, password')
-			->from('tb_customers')
-			->where('id', $customer_id)
+			->select('id, username, password, email, image, description, signature, location, date_joined, admin')
+			->from('tb_users')
+			->where('id', $user_id)
 			->get_one();
 
 			# the user's id, username and pw are stored into $result array
-			$this->customer_id = $result['id'];
-			$this->username = $result['username'];
-			$this->password = $result['password'];
-		}
+			$this->user_id     = $result['id'];
+			$this->username    = $result['username'];
+			$this->password    = $result['password'];
+			$this->email       = $result['email'];
+			$this->image       = $result['image'];
+			$this->description = $result['description'];
+			$this->signature   = $result['signature'];
+			$this->location    = $result['location'];
+			$this->date_joined = $result['date_joined'];
+			$this->admin       = $result['admin'];
 	}
 
 	#NORMAL METHODS ===============================================!
-
-		public function admin_authenticate(){
-			
-			# select the salt where the inputted username matches in the db
-			$user = $this->db
-				->select('salt')
-				->from('tb_admins')
-				->where('username', $this->username)
-				->get_one();
-
-			# encrypt the password and add the user's salt, store it in $encrypted_pw
-			$encrypted_pw = Hash::encrypt(
-				$this->password,
-				$user['salt']
-				);
-
-			# select the admin's id where the encrypted pws match
-			$result = $this->db
-				->select('id')
-				->from('tb_admins')
-				->where('password', $encrypted_pw)
-				->get_one();
-
-			# if there is a match in the admin db
-			if($result['id']){
-				$this->admin_id = $result['id'];
-				# then open the gates
-				return true;
-			}else{
-				# otherwise, they entered something wrong
-				return false;
-			}
-		}
 		
 		public function authenticate(){
 			
