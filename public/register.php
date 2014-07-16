@@ -25,7 +25,7 @@ if($_POST && $_POST['password'] == $_POST['confirmpassword']){
 	# and store the new stuff into the db
 	$user->save();
 	# now make them log in
-	header('location: login_page.php');
+	header('location: login.php');
 	exit;
 }
 

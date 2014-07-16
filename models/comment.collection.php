@@ -20,12 +20,8 @@ class Comments{
 		$this->db
 			->select('*')
 			->from('tb_comments')
-			->where('deleted', '0'); //if they are not deleted. Deleted =0
-		
-		# if it exists already, make sure the thread_id is consistent
-		if($id){
-			$this->db->where_and('thread_id', $id);
-		}
+			->where('deleted', '0') //if they are not deleted. Deleted =0
+			->where_and('thread_id', $id);
 
 		# get dem items
 		$this->items = $this->db->get();
@@ -34,15 +30,6 @@ class Comments{
 	# count how many products are in this list
 	public function count_items(){
 		return count($this->items);
-	}
-
-	public function home_page($id){
-		$this->db
-			->select('content')
-			->from('tb_comments')
-			->where_and('id', '$id');
-
-		$this->items = $this->db->get_one();
 	}
 
 }

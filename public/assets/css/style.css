@@ -121,22 +121,6 @@ nav ul li a{
     color: #f6f7da;
 }
 
-.delete_button{
-    display: inline-block;
-    margin-left: 40px;
-    color: tomato;
-}
-
-.delete_button:hover{
-    color: #373736;
-    text-decoration: none;
-}
-
-textarea{
-    width: 100%;
-    height: 200px;
-}
-
 .navbutton:hover{
     background: rgb(37,187,237); /* Old browsers */
     background: -moz-linear-gradient(top,  rgba(37,187,237,1) 0%, rgba(26,184,237,1) 30%, rgba(33,187,239,1) 31%, rgba(199,225,234,1) 100%); /* FF3.6+ */
@@ -156,12 +140,12 @@ https://kuler.adobe.com/Omnivoros-color-theme-3973929/
 
 body {/*
     background: #f6f7da;*/
-	background: #878786;
+	background: #373736;
 	font-family: helvetica;
     color: #373736;
 } 
 
-h2, h3{
+.blue_heading{
     color: #21bbef;
 }
 
@@ -211,12 +195,6 @@ td{/*
 }
 
 /*-----Footer-----*/
-
-.image-botton-right{
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-}
 
 /*-----Login Form-----*/
 
@@ -268,4 +246,99 @@ button{
     border-radius: 2px;
     outline: none;
     clear: both;
+}
+
+/*-----Edit Page Form-----*/
+
+.delete_button{
+    display: inline-block;
+    margin-left: 40px;
+    color: tomato;
+}
+
+.delete_button:hover{
+    color: #373736;
+    text-decoration: none;
+}
+
+textarea{
+    width: 100%;
+    height: 200px;
+}
+
+/*-----Forum section-----*/
+
+.threadtitle{
+    color: #373736;
+}
+
+.threadlink{
+    color: #373736;
+}
+
+.threadlink:hover{
+    color: #878786;
+}
+
+.avatar{
+    width: 64px;
+}
+
+.whole_post{
+    position: relative;
+    background: #21bbef;
+    border-radius: 2px;
+}
+
+.whole_post>h4{
+    margin: 0.5em 0 0;
+    padding: 0.2em 0.2em 0.3em;
+}
+
+.whole_post>h4>a{
+    color: #373736;
+    text-decoration: none;
+}
+
+.whole_post>h4>a:hover{
+    color: #878786;
+}
+
+.user_anchor,
+.post_anchor{
+    padding: 0;
+}
+
+.post_date>p{
+    margin-top: 0;
+}
+
+.signature{
+    border-top: 1px solid #878786;
+    margin-top: 1em;
+}
+
+.small_text{
+    font-size: 0.7em;
+    margin: 0.4em 0;
+}
+
+#original{
+    background: #ddd;
+}
+
+.post_box{
+    background: #f6f7da;
+    overflow: hidden;
+    padding: 0.6em;
+    border-radius: 2px;
+}
+
+/*-----user profiles-----*/
+
+.big_avatar{
+    width: 128px;
+}
+
+.member{
 }

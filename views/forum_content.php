@@ -11,15 +11,12 @@
 			</tr>
 
 			<? foreach($threads->items as $thread): ?>
-			<?php 
-				$user = new Users($thread['user_id']); 
-				$
-			?>
+			<?php $user = new Users($thread['user_id']); ?>
 			<tr>
-				<td><img style="width: 64px;" src="<?=$user->image?>"></td>
-				<td><?=$thread['name']?></td>
+				<td><img class="avatar" src="<?=$user->image?>"></td>
+				<td><a class="threadlink" href="thread.php?id=<?=$thread['id']?>"><?=$thread['name']?></a></td>
 				<td><?=$thread['date_posted']?></td>
-				<td><?=$user->username?> </td>
+				<td><a class="threadlink" href="user_profile.php?id=<?=$thread['user_id']?>"><?=$user->username?></a></td>
 				<td>x</td>
 			</tr>
 			<? endforeach; ?>
