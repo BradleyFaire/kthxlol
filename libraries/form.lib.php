@@ -216,4 +216,9 @@ class Form{
 		$html = self::input('number', $name, $value, $extras);
 		return $html;
 	}
+
+	public function radio($name, $value, $extras = ''){
+		$html = self::input('radio', $name, $value, $extras);
+		return $html;
+	}
 }

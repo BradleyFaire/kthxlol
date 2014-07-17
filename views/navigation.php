@@ -35,6 +35,7 @@
 		<ul class="loginnav">
 
 			<? if($_SESSION['user_logged_in']||$_SESSION['admin_logged_in']): ?>
+				<li><a class="navbutton" href="edit_profile.php?id=<?=$_SESSION['user_id']?>">Edit Profile</a></li>
 				<li><a class="navbutton" href="logout.php">Logout</a></li>
 			<? else: ?>
 				<li><a class="navbutton" href="login.php">Login</a></li>

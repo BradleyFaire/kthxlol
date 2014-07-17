@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once '../libraries/config.lib.php';
 require_once '../libraries/database.lib.php';
 require_once '../libraries/form.lib.php';
@@ -25,15 +27,24 @@ if($_POST){
 		if($user->admin == 1){
 			# sets the admin to logged in in the Session for access to extra features across the site.
 			Login::admin_log_in();
-			header('location: index.php');
-			exit;
 		}else{
 			# then log them in as a user instead
 			Login::user_log_in();
-			# and take them into the index
-			header('location: index.php');
-			exit;
 		}
+
+		$_SESSION['user_id']     = $user->id;
+		$_SESSION['username']    = $user->username;
+		$_SESSION['email']       = $user->email;
+		$_SESSION['password']    = $user->password;
+		$_SESSION['image']       = $user->image;
+		$_SESSION['description'] = $user->description;
+		$_SESSION['signature']   = $user->signature;
+		$_SESSION['location']    = $user->location;
+		$_SESSION['date_joined'] = $user->date_joined;
+
+		header('location: index.php');
+		exit;
+
 	}else{
 		# otherwise the login details are wrong
 		$error = 'Incorrect username, password or no input';

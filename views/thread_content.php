@@ -11,7 +11,7 @@
 		<h4>
 			<a href="user_profile.php?id=<?=$thread->user_id?>"><?=$creator->username?></a>
 		</h4>
-		<div id="original" class="post_box">
+		<div class="post_box">
 			<div class="col-2 user_anchor">
 				<? if($creator->admin == 1): ?>
 					<p class="small_text">Admin</p>

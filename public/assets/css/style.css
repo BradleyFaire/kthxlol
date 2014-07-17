@@ -268,6 +268,31 @@ textarea{
 
 /*-----Forum section-----*/
 
+.button{
+    text-align: center;
+    display: inline-block;
+    width: 175px;
+    margin: 0.25em 0;
+    font-weight: 300;
+    background: #21bbef;
+    color: #fff;
+    border: 1px solid #373736;
+    border-radius: 2px;
+    outline: none;
+    clear: both;
+    text-decoration: none;
+    position: relative;
+}
+
+.button:hover{
+    background: #878786;
+}
+
+.button:active{
+    top: 1px;
+    background: #373736;
+}
+
 .threadtitle{
     color: #373736;
 }
@@ -323,22 +348,20 @@ textarea{
     margin: 0.4em 0;
 }
 
-#original{
-    background: #ddd;
-}
-
 .post_box{
-    background: #f6f7da;
+    background: #ddd;
     overflow: hidden;
     padding: 0.6em;
     border-radius: 2px;
+}
+
+.radio{
+    display: inline;
+    margin: 0.6em;
 }
 
 /*-----user profiles-----*/
 
 .big_avatar{
     width: 128px;
-}
-
-.member{
 }

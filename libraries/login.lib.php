@@ -20,7 +20,7 @@ class Login{
 	# kick the admins and customers out muahaha
 	public function log_out(){
 		$_SESSION['admin_logged_in'] = false;
-		$_SESSION['customer_logged_in'] = false;
+		$_SESSION['user_logged_in'] = false;
 	}
 	
 
@@ -42,6 +42,17 @@ class Login{
 			if($_SESSION['user_logged_in'] == false){
 				# then you'd better log in before you look at that
 				header('location: login.php');
+				exit;
+			}
+		}
+	}
+
+	public function not_this_user(){
+		if($_SESSION['admin_logged_in'] == false){
+			# and also not a customer
+			if($_GET['id'] != $_SESSION['user_id']){
+				# then you'd better log in before you look at that
+				header('location: index.php');
 				exit;
 			}
 		}
