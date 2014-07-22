@@ -18,7 +18,7 @@ class User extends Model{
 
 		# select the id, salt, and encrypted pw from tb_users where the usernames match up
 		$user = $this->db
-			->select('id, salt, password')
+			->select('id, salt, password, deleted')
 			->from($this->table)
 			->where('username', $this->data['username'])
 			->get_one();
@@ -30,7 +30,7 @@ class User extends Model{
 		);
 
 		# if the password they entered matches up with the encrypted one
-		if($user['password'] == $encrypted_pw){
+		if($user['password'] == $encrypted_pw && $user['deleted'] == 0){
 			$this->load($user['id']);
 			# open the gates
 			return true;

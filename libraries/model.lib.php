@@ -106,7 +106,7 @@ class Model{
 	public function hard_delete(){
 		$this->db
 			->where('id', $this->data['id'])
-			->delete();
+			->delete($this->table);
 	}
 
 }

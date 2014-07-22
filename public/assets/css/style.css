@@ -41,6 +41,7 @@ header{
     position: relative;
     padding: 0 1em;
     background: #21bbef;
+        
 }
 
 header a{
@@ -183,10 +184,18 @@ th{
 tr{
 }
 
+.left_td{
+    border-left: 1px solid #373736;
+}
+
+.right_td{
+    border-right: 1px solid #373736;
+}
+
 td{/*
     border: 1px solid #373736;*/
-    padding: 0.5em 0 0.5em 0.2em;
-    border-bottom: 1px solid #21bbef;
+    padding: 0.5em;
+    border-bottom: 1px solid #373736;
 }
 
 .mainrow{
@@ -320,13 +329,18 @@ textarea{
     padding: 0.2em 0.2em 0.3em;
 }
 
-.whole_post>h4>a{
+.whole_post>h4 a{
     color: #373736;
     text-decoration: none;
 }
 
-.whole_post>h4>a:hover{
+.whole_post>h4 a:hover,
+.thread_link:hover{
     color: #878786;
+}
+
+.thread_link{
+    color: #373736;
 }
 
 .user_anchor,
@@ -351,6 +365,7 @@ textarea{
 .post_box{
     background: #ddd;
     overflow: hidden;
+    clear: both;
     padding: 0.6em;
     border-radius: 2px;
 }
@@ -358,6 +373,16 @@ textarea{
 .radio{
     display: inline;
     margin: 0.6em;
+}
+
+.reply{
+    display: inline;
+    float: right;
+    margin-right: 0.3em;
+}
+
+.name{
+    float: left;
 }
 
 /*-----user profiles-----*/

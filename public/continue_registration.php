@@ -45,10 +45,7 @@ if($_POST && $_POST['password'] == $_POST['confirmpassword']){
 		header('location: check_email.php?id=2');
 		exit;
 	}
-}
-
-# if they posted the login form but the passwords don't match, don't let them log in
-else if($_POST){
+}else if($_POST){
 
 	$error = 'Passwords do not match.';
 

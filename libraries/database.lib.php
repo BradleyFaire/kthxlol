@@ -237,6 +237,14 @@ class Database{
 		return $this->query($q);
 	}
 
+	# Assemble the DELETE query and send it to the db
+	public function delete($table){
+		$q  = "DELETE FROM $table ";
+		$q .= $this->where;
+
+		return $this->query($q);
+	}
+
 	# Turn SELECT query results into an associative array
 	public function assoc($result_object){
 		$rows = array();
