@@ -240,7 +240,7 @@ button:active{
     background: #373736;
 }
 
-.container input[type=submit], .register, .update, .create{
+.container input[type=submit]{
     width: 175px;
     position: relative;
 }
@@ -291,6 +291,7 @@ textarea{
     clear: both;
     text-decoration: none;
     position: relative;
+    padding: 2px 0px 3px;
 }
 
 .button:hover{

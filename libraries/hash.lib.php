@@ -23,4 +23,11 @@ class Hash{
 
 	}
 
+	public function make_token($email, $time){
+		return hash('sha256', $email.$time);
+	}
+
+	public function small_hash($token){
+		return hash('crc32b', $token);
+	}
 }

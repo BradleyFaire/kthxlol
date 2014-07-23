@@ -21,6 +21,16 @@
 				<?=Form::radio('hide_email', 1)?><p class="radio">Yes</p><br>
 				<?=Form::radio('hide_email', 0)?><p class="radio">No</p>
 			</div>
+		
+			<div class="row">
+				<?=Form::label('security_question', 'Security Question:')?>
+				<?=Form::input('text', 'security_question', $user->security_question)?>
+			</div>
+
+			<div class="row">
+				<?=Form::label('security_answer', 'Security Answer:')?>
+				<?=Form::input('text', 'security_answer', $user->security_answer)?>
+			</div>
 
 			<div class="row">
 				<?=Form::label('image', 'Image:')?>
@@ -49,6 +59,7 @@
 		<div class="row">
 
 			<?=Form::submit('Update')?>
+			<a class="button" href="change_password.php">Change Password</a>
 
 		</div>
 

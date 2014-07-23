@@ -10,12 +10,14 @@
 
 		<div class="row">
 			<?=Form::label('password', 'Password:')?>
-			<?=Form::input('password', 'password', $_POST['password'])?>
+			<?=Form::input('password', 'password')?>
 		</div>
 
 		<?php if($error): ?>
 		<p class="error"><?=$error?></p>
 		<?php endif; ?>
+
+		<p><a class="threadlink" href="forgot_password.php">Forgot your password?</a></p>
 
 		<div class="row">
 			<?=Form::submit('Login')?>
@@ -24,7 +26,7 @@
 	<?=Form::close()?>
 
 	<div class="row">
-		<a href="register.php"><button class="register">Register</button></a>
+		<a class="button" href="register.php">Register</a>
 	</div>
 
 </div>

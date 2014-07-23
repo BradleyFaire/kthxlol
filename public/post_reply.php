@@ -40,7 +40,7 @@ if($_POST){
 	$comment->user_id = $_POST['user_id'];
 	$comment->content = $_POST['content'];
 	$comment->save();
-	header("location: post_reply.php?id=$comment->thread_id&comment_id=$comment->id");
+	header("location: thread.php?id=$comment->thread_id");
 	exit;
 }
 

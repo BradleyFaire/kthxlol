@@ -42,7 +42,7 @@ if($_POST){
 	//Saves the threads
 	$thread_stuff->save();
 	//Redirects us to the page where we just added the new pages
-	header("location: create_thread.php?id=$thread_stuff->id");
+	header("location: thread.php?id=$thread_stuff->id");
 	exit;
 }
 

@@ -18,7 +18,7 @@ class User extends Model{
 
 		# select the id, salt, and encrypted pw from tb_users where the usernames match up
 		$user = $this->db
-			->select('id, salt, password, deleted')
+			->select('*')
 			->from($this->table)
 			->where('username', $this->data['username'])
 			->get_one();

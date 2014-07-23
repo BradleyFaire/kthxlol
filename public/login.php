@@ -35,7 +35,7 @@ if($_POST){
 		$_SESSION['user_id']     = $user->id;
 		$_SESSION['username']    = $user->username;
 		$_SESSION['email']       = $user->email;
-		$_SESSION['password']    = $user->password;
+		$_SESSION['hide_email']  = $user->hide_email;
 		$_SESSION['image']       = $user->image;
 		$_SESSION['description'] = $user->description;
 		$_SESSION['signature']   = $user->signature;

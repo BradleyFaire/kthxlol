@@ -23,6 +23,8 @@ if($_POST){
 	$user->username = $_POST['username'];
 	$user->email = $_POST['email'];
 	$user->hide_email = $_POST['hide_email'];
+	$user->security_question = $_POST['security_question'];
+	$user->security_answer = $_POST['security_answer'];
 	$user->image = $_POST['image'];
 	$user->description = $_POST['description'];
 	$user->signature = $_POST['signature'];

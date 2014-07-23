@@ -9,49 +9,46 @@ require_once '../libraries/form.lib.php';
 require_once '../libraries/hash.lib.php';
 require_once '../libraries/login.lib.php';
 require_once '../libraries/model.lib.php';
-require_once '../libraries/email.lib.php';
+require_once '../libraries/register.lib.php';
 require_once '../models/page.collection.php';
 
 # if the form was just posted AND the password matches the confirmed password field
-if($_POST && $_POST['password'] == $_POST['confirmpassword']){
+if($_POST && $_POST['security_question'] && $_POST['security_answer']){
 
-	$email = new Email();
+	$user = new Register();
 
-	$email->to = $_POST['email'];
-	$email->from = 'noreply@kthxlol.com';
-	$email->subject = 'Confirm Registration to kthxlol.com';
-	$email->message = '<p>If you have registered for an account at kthxlol.com, please click this link to continue with the registration process: <a href="http://bradley.faire.yoobee.net.nz/kthxlol/public/continue_registration.php?email='.$_POST['email'].'">Continue Registration</a></p>
-		<p>If this was not you, click this link to cancel the registration: <a href="http://bradley.faire.yoobee.net.nz/kthxlol/public/cancel_registration.php?email='.$_POST['email'].'">Cancel</a></p>';
-	 
-	$email->send();
+	$user->users_token($_GET['token']);
 
-	if($email->success){
+	# store the posted username inside $user
+	$user->hide_email	       = $_POST['hide_email'];
+	$user->security_question   = $_POST['security_question'];
+	$user->security_answer	   = $_POST['security_answer'];
+	$user->deleted		       = 0;
+	# and store the new stuff into the db
+	$user->save();
 
-		$user = new Model(tb_users);
+	Login::user_log_in();
 
-		# store the posted username inside $user
-		$user->username 	= $_POST['username'];
-		$user->email		= $_POST['email'];
-		$user->deleted		= 1;
-		# encrypt their new password and salt
-		$user->password     = Hash::make_password($_POST['password']);
-		$user->salt         = Hash::salt();
-		# and store the new stuff into the db
-		$user->save();
+	$_SESSION['user_id']     = $user->id;
+	$_SESSION['username']    = $user->username;
+	$_SESSION['email']       = $user->email;
+	$_SESSION['hide_email']  = $user->hide_email;
+	$_SESSION['image']       = $user->image;
+	$_SESSION['description'] = $user->description;
+	$_SESSION['signature']   = $user->signature;
+	$_SESSION['location']    = $user->location;
+	$_SESSION['date_joined'] = $user->date_joined;
 
-		header('location: check_email.php?id=1');
-		exit;
-	}else{
-		header('location: check_email.php?id=2');
-		exit;
-	}
+	header('location: edit_profile.php');
+	exit;
+
 }else if($_POST){
 
-	$error = 'Passwords do not match.';
+	$error = 'You must add a security question and answer';
 
 }
 
 include '../views/header.php';
 include '../views/navigation.php';
-include '../views/register_form.php';
+include '../views/register_form2.php';
 include '../views/footer.php';
