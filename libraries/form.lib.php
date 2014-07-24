@@ -21,8 +21,8 @@ class Form{
 	*	@return string $html The completed <form> tag
 	*
 	**/
-	public static function open($action = '', $method = 'post'){
-		$html = "<form action='$action' method='$method'>";
+	public static function open($action = '', $method = 'post', $extras = ''){
+		$html = "<form action='$action' method='$method' $extras>";
 		return $html;
 	}
 	/**
@@ -71,8 +71,8 @@ class Form{
 	*	@return string $html The completed <label> tag
 	*
 	**/
-	public static function label($for, $text){
-		$html = "<label for='$for'>$text</label>";
+	public static function label($for, $text, $extras = ''){
+		$html = "<label for='$for' $extras>$text</label>";
 		return $html;
 	}
 	/**
@@ -117,9 +117,9 @@ class Form{
 	*	@return string $html The completed <select> tag
 	*
 	**/
-	public static function select($name, $values, $pre_selected){
-		$html = "<select name='$name' id='$name'>";
-		$html .= self::options($values. $pre_selected);
+	public static function select($name, $values, $pre_selected, $extras = ''){
+		$html = "<select name='$name' id='$name' $extras>";
+		$html .= self::options($values, $pre_selected);
 		$html .= '</select>';
 		return $html;
 	}

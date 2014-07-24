@@ -11,7 +11,24 @@ require_once '../models/comment.collection.php';
 require_once '../models/thread.collection.php';
 require_once '../models/user.models.php';
 
-$threads = new Threads();
+
+$order = $_GET['order'] ? $_GET['order'] : 'recent_activity';
+
+if($order == 'recent_activity'){
+	$orderby = 'latest_change';
+	$orderdir = 'asc';
+
+}elseif($order == 'first_created'){
+	$orderby = 'id';
+	$orderdir = 'asc';
+
+}else{
+	$orderby = 'id';
+	$orderdir = 'desc';
+}
+
+$threads = new Threads(false, $orderby, $orderdir);
+
 
 include '../views/header.php';
 include '../views/navigation.php';

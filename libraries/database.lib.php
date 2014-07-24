@@ -44,6 +44,7 @@ class Database{
 	private $select = '';
 	private $from = '';
 	private $order_by = '';
+	private $limit = '';
 	private $where = '';
 	private $where_and = '';
 	private $where_or = '';
@@ -96,6 +97,7 @@ class Database{
 		$this->where_and = '';
 		$this->where_or = '';
 		$this->order_by = '';
+		$this->limit = '';
 		$this->sets = array();
 
 		# Output the result of the query
@@ -151,6 +153,12 @@ class Database{
 		return $this;
 	}
 
+	public function limit($from, $amount){
+		$this->limit = " LIMIT $from, $amount ";
+
+		return $this;
+	}
+
 	public function get_result(){
 		$q  = $this->select;
 		$q .= $this->from;
@@ -158,6 +166,7 @@ class Database{
 		$q .= $this->where_and;
 		$q .= $this->where_or;
 		$q .= $this->order_by;
+		$q .= $this->limit;
 
 		return $this->query($q);
 	}

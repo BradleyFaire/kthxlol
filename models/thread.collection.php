@@ -8,7 +8,7 @@ class Threads{
 	private $db;
 
 	#establish a connection to the db
-	public function __construct($id = false){
+	public function __construct($id = false, $orderby = false, $orderdir = false){
 		$this->db = new Database(
 			Config::$hostname,
 			Config::$username,
@@ -20,11 +20,15 @@ class Threads{
 		$this->db
 			->select('*')
 			->from('tb_threads')
+			#->order_by()
 			->where('deleted', '0'); //if they are not deleted. Deleted =0
 		
 		# if it exists already, make sure the category_id is consistent
 		if($id){
 			$this->db->where_and('id', $id);
+		}
+		if($orderby){
+			$this->db->order_by($orderby, $orderdir ? $orderdir : false);
 		}
 
 		# get dem items

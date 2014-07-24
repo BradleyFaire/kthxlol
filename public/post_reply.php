@@ -39,7 +39,12 @@ if($_POST){
 	$comment->thread_id = $_POST['thread_id'];
 	$comment->user_id = $_POST['user_id'];
 	$comment->content = $_POST['content'];
+	$comment->date_posted = date('Y-m-d H:i:s');
 	$comment->save();
+
+	$thread->latest_change = date('Y-m-d H:i:s');
+	$thread->save();
+
 	header("location: thread.php?id=$comment->thread_id");
 	exit;
 }

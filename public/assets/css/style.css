@@ -139,8 +139,15 @@ nav ul li a{
 https://kuler.adobe.com/Omnivoros-color-theme-3973929/
 */
 
-body {/*
-    background: #f6f7da;*/
+*{
+    margin: 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+body {
 	background: #373736;
 	font-family: helvetica;
     color: #373736;
@@ -152,12 +159,17 @@ body {/*
 
 .container{
     max-width: 960px;
-    margin: 0 auto;/*
-    background: #82d0f5;*/
+    margin: 0 auto;
     background: #fff;
     position: relative;
     overflow: hidden;
-    padding: 1em;
+    padding: 1em 1em 20px;
+    min-height: 100%;
+}
+
+.container:after{
+    content: '';
+    display: block;
 }
 
 body,
@@ -165,6 +177,20 @@ td,
 th{
 	font-size: 18px;
     color: #373736;
+}
+
+/*-----Footer-----*/
+
+.kthxlol_footer{
+    height: 20px;
+}
+
+.kthxlol_footer{
+    padding-top: 3px;
+    background: #373736;
+    text-align: center;
+    color: #fff;
+    font-size: 0.75em;
 }
 
 /*-----Table-----*/
@@ -202,8 +228,6 @@ td{/*
     background: #f6f7da;
     border-bottom: 0px;
 }
-
-/*-----Footer-----*/
 
 /*-----Login Form-----*/
 
@@ -277,6 +301,52 @@ textarea{
 
 /*-----Forum section-----*/
 
+.boxy{
+    width: 100%;
+}
+
+#orderform{
+    float: right;
+}
+
+.order2{
+    display: inline;
+    margin: 0.25em 0.25em;
+    border: 0;
+    border-radius: 0;
+    padding: 3px 0 2px;
+}
+
+.order{
+    margin: 0.25em 0;
+    border: 0;
+    border: 1px solid #373736;
+    border-radius: 0;
+    width: 175px;
+    padding: 3px 0 4px;
+}
+
+#selected_page{
+    background: #878786;
+}
+
+.pagebutton{
+    text-align: center;
+    display: inline-block;
+    width: 30px;
+    margin: 0.25em 0;
+    font-weight: 300;
+    background: #21bbef;
+    color: #fff;
+    border: 1px solid #373736;
+    border-radius: 2px;
+    outline: none;
+    clear: both;
+    text-decoration: none;
+    position: relative;
+    padding: 2px 0px 3px;
+}
+
 .button{
     text-align: center;
     display: inline-block;
@@ -294,17 +364,20 @@ textarea{
     padding: 2px 0px 3px;
 }
 
-.button:hover{
+.button:hover,
+.pagebutton:hover{
     background: #878786;
 }
 
-.button:active{
+.button:active,
+.pagebutton:active{
     top: 1px;
     background: #373736;
 }
 
 .threadtitle{
     color: #373736;
+    display: inline-block;
 }
 
 .threadlink{

@@ -39,8 +39,11 @@ if($_POST){
 	$thread_stuff->name = $_POST['name'];
 	$thread_stuff->user_id = $_POST['user_id'];
 	$thread_stuff->content = $_POST['content'];
+	$thread_stuff->date_posted = date('Y-m-d H:i:s');
+	$thread_stuff->latest_change = date('Y-m-d H:i:s');
 	//Saves the threads
 	$thread_stuff->save();
+
 	//Redirects us to the page where we just added the new pages
 	header("location: thread.php?id=$thread_stuff->id");
 	exit;
