@@ -84,8 +84,8 @@ class Form{
 	*	@return string $html The completed <textarea> tag
 	*
 	**/
-	public static function textarea($name, $value = ''){
-		$html = "<textarea id='$name' name='$name'>$value</textarea>";
+	public static function textarea($name, $value = '', $extras = ''){
+		$html = "<textarea id='$name' name='$name' $extras>$value</textarea>";
 		return $html;
 	}
 	/**
@@ -174,8 +174,8 @@ class Form{
 	*	@return string $html The completed <input type="file"> tag
 	*
 	**/
-	public static function file($name = 'file'){
-		$html = self::input('file', $name.'[]', '', 'multiple');
+	public static function file($name = 'file', $multiple = ''){
+		$html = self::input('file', $name.'[]', '', $multiple);
 		return $html;
 	}
 	/**

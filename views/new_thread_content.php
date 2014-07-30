@@ -14,7 +14,7 @@
 
 		<div class="row">
 			<?=Form::label('content', 'Content:')?>
-			<?=Form::textarea('content', $thread_stuff->content)?>
+			<?=Form::textarea('content', $thread_stuff->content, 'class="ckeditor"')?>
 		</div>
 
 		<div class="row">

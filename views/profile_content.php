@@ -3,7 +3,7 @@
 
 	<div class="product">
 
-	<?=Form::open()?>
+	<?=Form::open_multipart('', 'post')?>
 
 		<div class="col-6 post_anchor">
 			<div class="row">
@@ -17,9 +17,14 @@
 			</div>
 
 			<div class="row">
+				<? if($user->hide_email == 1){
+					$yes = 'checked';
+				}else{
+					$no = 'checked';
+				}?>
 				<?=Form::label('hide_email', 'Hide your Email?')?>
-				<?=Form::radio('hide_email', 1)?><p class="radio">Yes</p><br>
-				<?=Form::radio('hide_email', 0)?><p class="radio">No</p>
+				<?=Form::radio('hide_email', 1, $yes)?><p class="radio">Yes</p><br>
+				<?=Form::radio('hide_email', 0, $no)?><p class="radio">No</p>
 			</div>
 		
 			<div class="row">
@@ -32,9 +37,12 @@
 				<?=Form::input('text', 'security_answer', $user->security_answer)?>
 			</div>
 
+			<?=Form::max_file_size('614400')?>
+
 			<div class="row">
 				<?=Form::label('image', 'Image:')?>
-				<?=Form::text('image', $user->image)?>
+				<?=Form::file()?>
+				<?=$error_message?>
 			</div>
 
 		</div>

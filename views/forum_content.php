@@ -19,7 +19,7 @@
 
 			<tr>
 				<th width="32"></th>
-				<th width="456">Forum</th>
+				<th width="506">Forum</th>
 				<th width="32"></th>
 				<th width="180">Date Posted</th>
 				<th width="180">Created By</th>

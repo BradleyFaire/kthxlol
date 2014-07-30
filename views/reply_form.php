@@ -11,7 +11,7 @@
 
 		<div class="row">
 			<?=Form::label('content', 'Comment:')?>
-			<?=Form::textarea('content', $comment->content)?>
+			<?=Form::textarea('content', $comment->content, 'class="ckeditor"')?>
 		</div>
 
 		<div class="row">

@@ -5,7 +5,7 @@ require_once '../libraries/config.lib.php';
 class Comments{
 
 	public $items = array(); //holds content in database
-	public $per_page = 5;
+	public $per_page = 10;
 	private $db;
 
 	#establish a connection to the db
@@ -37,8 +37,13 @@ class Comments{
 	}
 
 	# count how many products are in this list
-	public function count_comments(){
-		$items = $this->db->select('id')->from('tb_comments')->where('deleted', '0')->get();
+	public function count_comments($id){
+		$items = $this->db
+			->select('id')
+			->from('tb_comments')
+			->where('deleted', '0')
+			->where_and('thread_id', $id)
+			->get();
 		return count($items);
 	}
 

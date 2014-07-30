@@ -5,7 +5,7 @@
 ?>
 
 <nav>
-	<div class="">
+	<div class="restriction">
 		<ul class="leftnav">
 
 			<? foreach($pages->items as $page): ?>

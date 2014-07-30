@@ -22,8 +22,16 @@ $thread->load($_GET['id']);
 
 $creator = new Users($thread->user_id);
 
-$comment_count = $comments->count_comments();
+$comment_count = $comments->count_comments($_GET['id']);
 $totalpages = ceil($comment_count/$comments->per_page);
+
+
+$number = $_GET['page'] ? $_GET['page'] : 1;
+$back = $number-1;
+$next = $number+1;
+$left = $number-3;
+$right = $number+2;
+$lastmarker = $totalpages - 3;
 
 include '../views/header.php';
 include '../views/navigation.php';

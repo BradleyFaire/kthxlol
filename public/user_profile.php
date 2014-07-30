@@ -11,7 +11,8 @@ require_once '../models/user.models.php';
 require_once '../models/thread.collection.php';
 require_once '../models/page.collection.php';
 
-$user = new Users($_GET['id']);
+$user = new Model('tb_users');
+$user->load($_GET['id']);
 
 include '../views/header.php';
 include '../views/navigation.php';

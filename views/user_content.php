@@ -13,15 +13,25 @@
 			</div>
 			<div class="col-10 post_anchor">
 				<div class="post_date">
-					<p style="margin: 0;">Date joined:</p>
-					<p class="small_text"><?=$user->date_joined?></p>
+					<div class="inline_box">
+						<p class="small_text" style="margin: 0;">Date joined:</p>
+						<p class="small_text"><?=$user->date_joined?></p>
+					</div>
+					<? if($user->hide_email == 0): ?>
+						<div class="inline_box push">
+							<p class="small_text" style="margin: 0;">Email:</p>
+							<p class="small_text"><?=$user->email?></p>
+						</div>
+					<? endif; ?>
 				</div>
 				<div class="post_content">
-					<p style="margin: 0;">Description:</p>
-					<?=$user->description?>
+					<p class="small_text" style="margin: 0;">Description:</p>
+					<div class="small_text">
+						<?=$user->description?>
+					</div>
 				</div>
 				<div class="signature">
-					<p style="margin: 0;">Signature:</p>
+					<p class="small_text" style="margin: 0;">Signature:</p>
 					<p class="small_text"><?=$user->signature?></p>
 				</div>
 			</div>

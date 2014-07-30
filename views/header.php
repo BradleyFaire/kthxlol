@@ -7,8 +7,9 @@
 </head>
 <body>
 	<header>
-		<h1><a href="index.php">kthxlol</a></h1>
+		<div class="restriction">
+			<h1><a href="index.php">kthxlol</a></h1>
 
-		<img class="image-bottom-right" src="assets/img/logo.png" alt="logo">
-
+			<img class="image-bottom-right" src="assets/img/logo.png" alt="logo">
+		</div>
 	</header>
