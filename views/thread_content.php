@@ -126,7 +126,7 @@
 						<p><?=date('l, j F, Y', strtotime($thread->date_posted))?></p>
 					</div>
 					<div class="post_content">
-						<?=$thread->get_filtered('content')?>
+						<?=$thread->content?>
 					</div>
 					<div class="small_text signature">
 						<?=$creator->signature?>
@@ -138,7 +138,8 @@
 	<? if($comments->count_comments($_GET['id']) != 0): ?>
 		<? foreach($comments->items as $comment): ?>
 
-			<?php $poster = new Users($comment['user_id']) ?>
+			<?php $poster = new Model('tb_users');
+			$poster->load($comment['user_id']) ?>
 
 			<div class="whole_post">
 				<h4>
@@ -171,7 +172,7 @@
 							<p><?=date('l, j F, Y', strtotime($comment['date_posted']))?></p>
 						</div>
 						<div class="post_content">
-							<?=strip_tags($comment['content'], '<p><a><b><i><h1><h2><h3><h4><h5><h6><br>')?>
+							<?=strip_tags($comment['content'], '<p><a><b><i><h1><h2><h3><h4><h5><h6><br><img><iframe>')?>
 						</div>
 						<div class="small_text signature">
 							<?=$poster->signature?>

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>kthxlol.com</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<header>

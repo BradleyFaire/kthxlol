@@ -107,7 +107,7 @@ class Model{
 
 			$value = $this->data[$var];
 
-			$filtered_value = strip_tags($value, '<p><a><b><i><h1><h2><h3><h4><h5><h6><br>');
+			$filtered_value = strip_tags($value, '<p><a><b><i><h1><h2><h3><h4><h5><h6><br><img><iframe>');
 			$filtered_value = strip_slashes($filtered_value);
 
 			return $filtered_value;

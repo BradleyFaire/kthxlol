@@ -12,7 +12,7 @@
 
 		<div class="row">
 			<?=Form::label('content', 'Content:')?>
-			<?=Form::textarea('content', $page_stuff->content)?>
+			<?=Form::textarea('content', $page_stuff->content, 'class="ckeditor"')?>
 		</div>
 
 		<div class="row">

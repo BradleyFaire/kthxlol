@@ -20,7 +20,8 @@ if($_GET['page']){
 $thread = new Model('tb_threads');
 $thread->load($_GET['id']);
 
-$creator = new Users($thread->user_id);
+$creator = new Model('tb_users');
+$creator->load($thread->user_id);
 
 $comment_count = $comments->count_comments($_GET['id']);
 $totalpages = ceil($comment_count/$comments->per_page);

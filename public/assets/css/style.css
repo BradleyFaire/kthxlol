@@ -154,7 +154,7 @@ html, body{
 
 body {
 	background: #373736;
-	font-family: helvetica;
+	font-family: Oxygen;
     color: #373736;
 } 
 
@@ -335,6 +335,7 @@ textarea{
 
 .boxy{
     width: 100%;
+    overflow: hidden;
 }
 
 #orderform{
