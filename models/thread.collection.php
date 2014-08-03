@@ -40,4 +40,18 @@ class Threads{
 		return count($this->items);
 	}
 
+	public function get_filtered($var){
+		if($this->items[$var]){
+
+			$value = $this->items[$var];
+
+			$filtered_value = strip_tags($value, '<br><div><p><a><b><i><h1><h2><h3><h4><h5><h6><img><iframe>');
+
+			return $filtered_value;
+
+		}else{
+			return false;
+		}
+	}
+
 }

@@ -60,7 +60,7 @@ class Model{
 	*/
 	function __get($var){
 		if(isset($this->data[$var])){
-			return $this->data[$var];
+			return $this->get_filtered($var);
 		}else{
 			return false;
 		}
@@ -103,12 +103,11 @@ class Model{
 	*
 	*/
 	public function get_filtered($var){
-		if(!$this->data[$var]){
+		if($this->data[$var]){
 
 			$value = $this->data[$var];
 
-			$filtered_value = strip_tags($value, '<p><a><b><i><h1><h2><h3><h4><h5><h6><br><img><iframe>');
-			$filtered_value = strip_slashes($filtered_value);
+			$filtered_value = strip_tags($value, '<br><div><p><a><b><i><h1><h2><h3><h4><h5><h6><img><iframe>');
 
 			return $filtered_value;
 
